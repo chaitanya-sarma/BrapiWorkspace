@@ -1,0 +1,29 @@
+package org.BrAPI.BrAPIApp;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Form;
+import javax.ws.rs.core.Response;
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hellooooooooooo World!" );
+        Client client = ClientBuilder.newClient();
+		WebTarget webTarget = client.target("http://bms.icrisat.ac.in:48080/bmsapi/authenticate");
+								//	.queryParam("username", "arathore")
+								//	.queryParam("password", "abcd@1234");
+		Form formData = new Form();
+		formData.param("username", "arathore");
+		formData.param("password", "abcd@1234");
+		Response response =	webTarget.request().post(Entity.form(formData));
+		System.out.println(response.getStatus());
+		String res = response.readEntity(String.class);
+    }
+}
