@@ -1,0 +1,8 @@
+.metadata
+.recommenders
+.idea
+.gitignore
+BrAPIApp.iml
+RemoteSystemsTempFiles
+*.class
+BrAPIApp/target
